@@ -1,0 +1,4 @@
+<h3>Take a look at each artist with a link to its page</h3>
+<% @artists.each do |artist|%>
+    <a href=<%= "/artists/#{artist.slug}"%>><%= artist.name%></a><br>
+<%end%>
