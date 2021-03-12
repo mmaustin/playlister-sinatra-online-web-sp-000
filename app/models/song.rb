@@ -8,12 +8,17 @@ class Song < ActiveRecord::Base
     end
 
     def self.find_by_slug(slug)
-        m = []
-        a = slug.split("-")
-        a.each do |n|
-          m << n.capitalize
-        end
-        self.find_by(name: m.join(" "))
+        Song.all.find{|s| s.slug == slug}
     end
     
 end
+
+=begin
+def self.find_by_slug(slug)
+    new_array = []
+    slug_split = slug.split("-")
+    slug_split.each do |part|
+        new_array << part.capitalize
+    end
+    self.find_by(name: new_array.join(" "))
+=end   
